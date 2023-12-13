@@ -29,7 +29,7 @@ model User {
 model Post {
   title          String    @unique
   slug           String    @id /// Slug is an uri safe string derived from the title.
-  description    String /// Description for SEO of this post.
+  description    String    @db.Text /// Description for SEO of this post.
   body           String    @db.Text /// The main content of the post.
   tagList        Tag[] /// List of tags associated with this post.
   author         User      @relation("Author", fields: [authorUsername], references: [username], onDelete: Cascade) /// User that is the author of this post.
@@ -49,7 +49,7 @@ model Comment {
   body           String /// The main content of the comment.
   author         User     @relation("Author", fields: [authorUsername], references: [username], onDelete: Cascade) /// User that is the author of this comment.
   authorUsername String /// Username of the author of this comment.
-  Post           Post     @relation("Comments", fields: [postSlug], references: [slug], onDelete: Cascade) /// Post that this comment belongs to.
+  post           Post     @relation("Comments", fields: [postSlug], references: [slug], onDelete: Cascade) /// Post that this comment belongs to.
   postSlug       String /// Post slug that this comment belongs to.
 
   @@index([authorUsername])

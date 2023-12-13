@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge'
 import { Tag } from '@prisma/client'
 import Link from 'next/link'
 
@@ -11,15 +12,13 @@ export default function TagGroup({ tags }: TagGroupProps) {
       {tags ? (
         tags.map((tag, index) => (
           <Link key={`tag-${index}`} href={`/?tag=${tag.tagName}`}>
-            <p className='px-2 py-1 mr-2 text-sm font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500'>
-              {tag.tagName}
-            </p>
+            <Badge className='mr-[3px]'>{tag.tagName}</Badge>
           </Link>
         ))
       ) : (
-        <p className='px-2 py-1 mr-2 text-sm font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500'>
-          No tags.
-        </p>
+        <Badge className='mr-2 text-muted-foreground' variant='outline'>
+          No tags
+        </Badge>
       )}
     </div>
   )

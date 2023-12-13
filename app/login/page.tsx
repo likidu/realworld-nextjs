@@ -1,22 +1,19 @@
+import LoginForm from '@/components/login-form'
+import Link from 'next/link'
+
 export default function Page() {
   return (
-    <div>
-      <h1>Sign in</h1>
-      <p>Need an account?</p>
-      <a href='/register'>Sign up</a>
-      <form>
-        <fieldset>
-          <input type='email' placeholder='Email' className='block w-full' />
-        </fieldset>
-        <fieldset>
-          <input
-            type='password'
-            placeholder='Password'
-            className='block w-full'
-          />
-        </fieldset>
-        <button className='block w-full'>Sign in</button>
-      </form>
+    <div className='container'>
+      <div className='mt-6 flex flex-col items-center justify-center'>
+        <h1 className='text-2xl font-semibold tracking-tight'>Sign in</h1>
+        <p className='text-sm text-muted-foreground'>
+          Need an account?{' '}
+          <Link href='/register' className='text-accent hover:underline'>
+            Sign up
+          </Link>
+        </p>
+        <LoginForm />
+      </div>
     </div>
   )
 }

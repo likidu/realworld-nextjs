@@ -1,14 +1,12 @@
-import Link from 'next/link'
+import { auth } from '@/auth'
+import NavBar from './nav-bar'
 
-export default function Header() {
+export default async function Header() {
+  const session = await auth()
+
   return (
     <header>
-      <Link href='/'>Conduit</Link>
-      <nav>
-        <Link href='/'>Home</Link>
-        <Link href='/login'>Sign in</Link>
-        <Link href='/register'>Sign up</Link>
-      </nav>
+      <NavBar session={session} />
     </header>
   )
 }

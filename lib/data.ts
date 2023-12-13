@@ -1,19 +1,38 @@
 import prisma from '@/lib/prisma'
-import { Post, Tag, User } from '@prisma/client'
+import { Prisma, Tag, User } from '@prisma/client'
 import { unstable_noStore as noStore } from 'next/cache'
 
-const PAGE_SIZE = 3
+// Create type that includes relations
+// https://www.prisma.io/docs/orm/prisma-client/type-safety/operating-against-partial-structures-of-model-types#solution
+const postWithAuthor = Prisma.validator<Prisma.PostDefaultArgs>()({
+  include: {
+    author: {
+      select: { username: true, email: true, image: true },
+    },
+  },
+})
+
+export type PostWithAuthor = Prisma.PostGetPayload<typeof postWithAuthor>
+
+// export type PostWithAuthor = Prisma.PromiseReturnType<typeof getPosts>
+
+// # of posts per page
+const PAGE_SIZE = 6
 
 export async function getPosts(currentPage: number) {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore()
 
-  const posts: Post[] = await prisma.post.findMany({
+  const posts = await prisma.post.findMany({
     skip: (currentPage - 1) * PAGE_SIZE,
     take: PAGE_SIZE,
     where: {},
-    include: {},
+    include: {
+      author: {
+        select: { username: true, email: true, image: true },
+      },
+    },
     orderBy: { createdAt: 'desc' },
   })
 
@@ -49,10 +68,9 @@ export async function getPostBySlug(slug: string) {
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore()
 
-  // FIXME: Type 'Post | null' is not assignable to type 'Post'.
-  const post: Post | null = await prisma.post.findUnique({
+  const post = await prisma.post.findUnique({
     where: { slug },
-    include: {},
+    include: { author: true },
   })
 
   return post
