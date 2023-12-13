@@ -64,6 +64,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ![RealWorld Example App](./docs/realworld-nextjs-tidb-serverless.png)
 
+To test with Sign in, use the following credentials:
+
+```
+Email: user@tidb.link
+Password: 123456
+```
+
 ## Deploy on Vercel
 
 You can deploy this template to Vercel with the button below:
