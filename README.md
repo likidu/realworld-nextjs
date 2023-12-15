@@ -6,6 +6,12 @@ A [RealWorld example app](https://github.com/gothinkster/realworld) built with [
 
 ## Getting Started
 
+### One-click Deploy on Vercel
+
+You can deploy this template to Vercel with the button below:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=%3Dhttps%3A%2F%2Fgithub.com%2Flikidu%2Frealworld-nextjs%26env%3DNEXTAUTH_SECRET%26project-name%3Drealworld-nextjs%26repository-name%3Drealworld-nextjs%26demo-title%3DRealWorld%20with%20TiDB%20Serverless%26demo-description%3DA%20RealWorld%20example%20app%20built%20with%20Next.js%2C%20Prisma%20and%20TiDB%20Serverless.%26demo-url%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Flikidu%2Frealworld-nextjs%2Fmain%2Fdocs%2Frealworld-nextjs-tidb-serverless.png%26integration-ids%3Doac_coKBVWCXNjJnCEth1zzKoF1j)
+
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) – JavaScript runtime
@@ -70,12 +76,6 @@ To test with Sign in, use the following credentials:
 Email: user@tidb.link
 Password: 123456
 ```
-
-## Deploy on Vercel
-
-You can deploy this template to Vercel with the button below:
-
-[![Deploy with Vercel](https://vercel.com/button)]()
 
 ## Learn More
 
