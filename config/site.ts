@@ -7,8 +7,7 @@ const titillium = Titillium_Web({ weight: '700', subsets: ['latin'] })
 
 const siteConfig = {
   name: 'conduit',
-  description:
-    'Beautifully designed components built with Radix UI and Tailwind CSS.',
+  description: 'RealWorld sample app with Next.js and TiDB Serverless.',
   mainNav: [
     {
       title: 'Sign In',
@@ -20,9 +19,9 @@ const siteConfig = {
     },
   ],
   links: {
-    twitter: 'https://twitter.com/shadcn',
-    github: 'https://github.com/shadcn/ui',
-    docs: 'https://ui.shadcn.com',
+    twitter: 'https://twitter.com/pingcap',
+    github: 'https://github.com/pingcap/tidb',
+    docs: 'https://docs.pingcap.com/tidbcloud/',
   },
   fonts: {
     inter,

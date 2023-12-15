@@ -9,7 +9,7 @@ export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
-      async authorize(credentials, req) {
+      async authorize(credentials, req): Promise<any> {
         const parsedCredentials = z
           // FIXME: Move min password length to config
           .object({ email: z.string().email(), password: z.string().min(6) })
