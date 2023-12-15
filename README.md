@@ -6,12 +6,6 @@ A [RealWorld example app](https://github.com/gothinkster/realworld) built with [
 
 ## Getting Started
 
-### One-click Deploy on Vercel
-
-You can deploy this template to Vercel with the button below:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flikidu%2Frealworld-nextjs&project-name=realworld-nextjs-tidb-serverless&repository-name=realworld-nextjs&demo-title=RealWorld%20with%20TiDB%20Serverless&demo-description=A%20RealWorld%20example%20app%20built%20with%20Next.js%2C%20Prisma%20and%20TiDB%20Serverless.&demo-url=realworld-nextjs-tidb-serverless.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Flikidu%2Frealworld-nextjs%2Fmain%2Fdocs%2Frealworld-nextjs-tidb-serverless.png&integration-ids=oac_coKBVWCXNjJnCEth1zzKoF1j)
-
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) – JavaScript runtime
@@ -58,7 +52,7 @@ pnpm prisma db seed
 
 The [seed script](./prisma/seed.ts) will first clean up the existing records and create a few mocking users and posts.
 
-### Run the app
+### Run the app locally
 
 Finally, run the development server:
 
@@ -76,6 +70,12 @@ To test with Sign in, use the following credentials:
 Email: user@tidb.link
 Password: 123456
 ```
+
+## One-click Deploy on Vercel
+
+You can deploy this template to Vercel with the button below. Make sure you have finished the [database setup](#set-up-database) step before deploying.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flikidu%2Frealworld-nextjs&project-name=realworld-nextjs-tidb-serverless&repository-name=realworld-nextjs&demo-title=RealWorld%20with%20TiDB%20Serverless&demo-description=A%20RealWorld%20example%20app%20built%20with%20Next.js%2C%20Prisma%20and%20TiDB%20Serverless.&demo-url=realworld-nextjs-tidb-serverless.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Flikidu%2Frealworld-nextjs%2Fmain%2Fdocs%2Frealworld-nextjs-tidb-serverless.png&integration-ids=oac_coKBVWCXNjJnCEth1zzKoF1j)
 
 ## Learn More
 
