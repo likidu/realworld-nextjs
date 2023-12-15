@@ -2,14 +2,17 @@ import prisma from '@/lib/prisma'
 import { Prisma, Tag, User } from '@prisma/client'
 import { unstable_noStore as noStore } from 'next/cache'
 
+const includeRelations = {
+  author: {
+    select: { username: true, email: true, image: true },
+  },
+  tagList: true,
+}
+
 // Create type that includes relations
 // https://www.prisma.io/docs/orm/prisma-client/type-safety/operating-against-partial-structures-of-model-types#solution
 const postWithAuthor = Prisma.validator<Prisma.PostDefaultArgs>()({
-  include: {
-    author: {
-      select: { username: true, email: true, image: true },
-    },
-  },
+  include: includeRelations,
 })
 
 export type PostWithAuthor = Prisma.PostGetPayload<typeof postWithAuthor>
@@ -28,11 +31,7 @@ export async function getPosts(currentPage: number) {
     skip: (currentPage - 1) * PAGE_SIZE,
     take: PAGE_SIZE,
     where: {},
-    include: {
-      author: {
-        select: { username: true, email: true, image: true },
-      },
-    },
+    include: includeRelations,
     orderBy: { createdAt: 'desc' },
   })
 
@@ -70,7 +69,7 @@ export async function getPostBySlug(slug: string) {
 
   const post = await prisma.post.findUnique({
     where: { slug },
-    include: { author: true },
+    include: includeRelations,
   })
 
   return post

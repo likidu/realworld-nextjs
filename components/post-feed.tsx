@@ -13,7 +13,7 @@ export default function PostFeed({ tabList, children }: PostFeedProps) {
   const [value, setValue] = useState('global')
   useEffect(() => {
     setValue('global')
-  }, ['global'])
+  }, [])
 
   return (
     <Tabs defaultValue={tabList[0].value}>
